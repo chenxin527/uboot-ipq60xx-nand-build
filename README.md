@@ -44,9 +44,11 @@ Fork 本仓库后使用 GitHub Actions 云编译。
 
 ![uboot-tiny-index-page](./screenshots/uboot-tiny-index-page.png)
 
+[点击此处](https://github.com/chenxin527/uboot-ipq60xx-emmc-build/tree/main/screenshots) 查看更多网页截图。
+
 > [!NOTE]
 >
-> Full 版本和 Tiny 版本的 U-Boot 功能一致，仅 WebUI 不同。自 [Commit 58b5227](https://github.com/chenxin527/uboot-ipq60xx-emmc-build/commits/main/) 开始，Full U-Boot 和 Tiny U-Boot 大小都超过了 640KB，最后一个 Tiny U-Boot 小于 640KB 的版本：[Release 25.10.12-14.44.11](https://github.com/chenxin527/uboot-ipq60xx-emmc-build/releases/tag/25.10.12-14.44.11)（需要注意的是，此版本没有对京东云太乙进行适配）。
+> Full 版本和 Tiny 版本的 U-Boot 功能一致，仅 WebUI 不同。自 [Commit 58b5227](https://github.com/chenxin527/uboot-ipq60xx-emmc-build/commit/58b5227bd928d06bf6fc232f00d9c4873671e751) 开始，Full U-Boot 和 Tiny U-Boot 大小都超过了 640KB，最后一个 Tiny U-Boot 小于 640KB 的版本：[Release 25.10.12-14.44.11](https://github.com/chenxin527/uboot-ipq60xx-emmc-build/releases/tag/25.10.12-14.44.11)（需要注意的是，此版本没有对京东云太乙进行适配）。
 >
 > 对 WebUI 没有特殊需求的，或者对分区操作不熟悉、怕路由器变砖的，建议刷写最后一个 Tiny U-Boot 小于 640KB 的版本：[Release 25.10.12-14.44.11](https://github.com/chenxin527/uboot-ipq60xx-emmc-build/releases/tag/25.10.12-14.44.11)；或者不刷此 U-Boot，继续使用你已有的 U-Boot。
 >
