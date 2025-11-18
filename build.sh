@@ -169,7 +169,6 @@ clean_cache() {
             ../.gdb_history \
             arch/arm/dts/dtbtable.S \
             httpd/fsdata.c \
-            scripts_mbn/mbn_tools.pyc \
             u-boot* \
             .config \
             include/config \
@@ -220,7 +219,7 @@ compile_target_after_cache_clean() {
     arm-openwrt-linux-strip u-boot
 
     log_message "转换 elf 到 mbn"
-    python3 scripts_mbn/elftombn.py -f ./u-boot -o ./u-boot.mbn -v 6
+    python3 -B scripts_mbn/elftombn.py -f ./u-boot -o ./u-boot.mbn -v 6
 
 	local output_file="${SCRIPT_DIR}/uboot-ipq60xx-emmc-${target_name}-${uboot_version}.bin"
     log_message "移动 u-boot.mbn 到根目录并重命名"
