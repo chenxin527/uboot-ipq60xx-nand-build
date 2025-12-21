@@ -232,30 +232,30 @@ static int httpd_findandstore_firstchunk(void){
 
 				// We need to check if file which we are going to download
 				// has correct size (for every type of upgrade)
-
-				// U-Boot
-				if((webfailsafe_upgrade_type == WEBFAILSAFE_UPGRADE_TYPE_UBOOT) && (hs->upload_total > WEBFAILSAFE_UPLOAD_UBOOT_SIZE_IN_BYTES_NAND)){
-					printf("## Error: wrong file size, should be less than or equal to: %d bytes!\n", WEBFAILSAFE_UPLOAD_UBOOT_SIZE_IN_BYTES_NAND);
-					webfailsafe_upload_failed = 1;
-					file_too_big = 1;
-
-				// ART
-				}
-				else if((webfailsafe_upgrade_type == WEBFAILSAFE_UPGRADE_TYPE_ART) && (hs->upload_total > WEBFAILSAFE_UPLOAD_ART_SIZE_IN_BYTES_NAND)){
-					printf("## Error: wrong file size, should be less than or equal to: %d bytes!\n", WEBFAILSAFE_UPLOAD_ART_SIZE_IN_BYTES_NAND);
-					webfailsafe_upload_failed = 1;
-					file_too_big = 1;
-
-				// CDT
-				}
-				else if((webfailsafe_upgrade_type == WEBFAILSAFE_UPGRADE_TYPE_CDT)
-						&& (hs->upload_total > WEBFAILSAFE_UPLOAD_CDT_SIZE_IN_BYTES_NAND)
-						){
-
-					printf("## Error: wrong file size, should be less than or equal to: %d bytes!\n", WEBFAILSAFE_UPLOAD_CDT_SIZE_IN_BYTES_NAND);
-					webfailsafe_upload_failed = 1;
-					file_too_big = 1;
-
+				switch (webfailsafe_upgrade_type) {
+					case WEBFAILSAFE_UPGRADE_TYPE_UBOOT:
+						if (hs->upload_total > WEBFAILSAFE_UPLOAD_UBOOT_SIZE_IN_BYTES_NAND) {
+							printf("## Error: wrong file size, should be less than or equal to: %d bytes!\n", WEBFAILSAFE_UPLOAD_UBOOT_SIZE_IN_BYTES_NAND);
+							webfailsafe_upload_failed = 1;
+							file_too_big = 1;
+						}
+						break;
+					case WEBFAILSAFE_UPGRADE_TYPE_ART:
+						if (hs->upload_total > WEBFAILSAFE_UPLOAD_ART_SIZE_IN_BYTES_NAND) {
+							printf("## Error: wrong file size, should be less than or equal to: %d bytes!\n", WEBFAILSAFE_UPLOAD_ART_SIZE_IN_BYTES_NAND);
+							webfailsafe_upload_failed = 1;
+							file_too_big = 1;
+						}
+						break;
+					case WEBFAILSAFE_UPGRADE_TYPE_CDT:
+						if (hs->upload_total > WEBFAILSAFE_UPLOAD_CDT_SIZE_IN_BYTES_NAND) {
+							printf("## Error: wrong file size, should be less than or equal to: %d bytes!\n", WEBFAILSAFE_UPLOAD_CDT_SIZE_IN_BYTES_NAND);
+							webfailsafe_upload_failed = 1;
+							file_too_big = 1;
+						}
+						break;
+					default:
+						break;
 				}
 
 				printf("Loading: ");
