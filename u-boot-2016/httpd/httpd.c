@@ -241,18 +241,10 @@ static int httpd_findandstore_firstchunk(void){
 
 				// ART
 				}
-				else if(webfailsafe_upgrade_type == WEBFAILSAFE_UPGRADE_TYPE_ART){
-					if (hs->upload_total > WEBFAILSAFE_UPLOAD_ART_SIZE_IN_BYTES_NAND){
-						printf("## Error: wrong file size, should be less than or equal to: %d bytes!\n", WEBFAILSAFE_UPLOAD_ART_SIZE_IN_BYTES_NAND);
-						webfailsafe_upload_failed = 1;
-						file_too_big = 1;
-					}
-
-				// firmware can't exceed: (FLASH_SIZE -  WEBFAILSAFE_UPLOAD_LIMITED_AREA_IN_BYTES)
-				// } else if(hs->upload_total > (info->size - WEBFAILSAFE_UPLOAD_LIMITED_AREA_IN_BYTES)){
-
-				// 	printf("## Error: file too big!\n");
-				// 	webfailsafe_upload_failed = 1;
+				else if((webfailsafe_upgrade_type == WEBFAILSAFE_UPGRADE_TYPE_ART) && (hs->upload_total > WEBFAILSAFE_UPLOAD_ART_SIZE_IN_BYTES_NAND)){
+					printf("## Error: wrong file size, should be less than or equal to: %d bytes!\n", WEBFAILSAFE_UPLOAD_ART_SIZE_IN_BYTES_NAND);
+					webfailsafe_upload_failed = 1;
+					file_too_big = 1;
 
 				// CDT
 				}

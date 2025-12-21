@@ -14,7 +14,7 @@ u-boot-2016 源代码基于：https://github.com/gl-inet/uboot-ipq60xx
 
 > [!NOTE]
 >
-> NAND 机型的 U-Boot 均填充到了 1536 KB（0:APPSBL 分区大小）。初次刷入此 U-Boot 时建议在 SSH 下或者 TTL 下更新。其他作者的 U-Boot 可能限制了 192.168.1.1/uboot.html 界面下上传的 U-Boot 大小，无法直接更新此 U-Boot，若要在其他作者 U-Boot 的 192.168.1.1/uboot.html 界面下刷写此 U-Boot，请用十六进制编辑器删掉此 U-Boot 末尾多余的 0x0 后再尝试刷写。
+> 360V6 靠近 USB 的第二个网口（紧挨着 WAN 的 LAN 口）无法进入 U-Boot Web 界面，请使用其他网口。
 
 ## 编译方法
 
@@ -44,7 +44,7 @@ git clone https://github.com/chenxin527/uboot-ipq60xx-nand-build.git
 选项:
   help                    显示此帮助信息
   setup_env               仅设置编译环境
-  check_file_size <文件>  检查并调整文件大小至 640KB (655360 Bytes)
+  check_file_size <文件>  检查并调整文件大小至 1536 KB (1572864 Bytes)
   clean_cache             清理编译过程中产生的缓存
   build_360v6             编译 Qihoo 360V6
   build_all               编译所有支持的设备
@@ -65,6 +65,10 @@ U-Boot 文件：uboot-ipq60xx-nand-\${设备型号}-\${版本号}.bin
 U-Boot 截图示例（[点击此处](./screenshots.md) 查看所有网页截图）：
 
 ![uboot-index-page](./screenshots/uboot-index-page.png)
+
+> [!NOTE]
+>
+> NAND 机型的 U-Boot 均填充到了 1536 KB（0:APPSBL 分区大小）。初次刷入此 U-Boot 时建议在 SSH 下或者 TTL 下更新。其他作者的 U-Boot 可能限制了 192.168.1.1/uboot.html 界面下上传的 U-Boot 大小，无法直接更新此 U-Boot，若要在其他作者 U-Boot 的 192.168.1.1/uboot.html 界面下刷写此 U-Boot，请用十六进制编辑器删掉此 U-Boot 末尾多余的 0x0 后再尝试刷写。
 
 ## 功能介绍
 
@@ -88,7 +92,7 @@ U-Boot 截图示例（[点击此处](./screenshots.md) 查看所有网页截图�
 >
 > [点击此处](http://example.com) 获取 USB 9008 救砖教程及相关文件。
 >
-> [点击此处](http://example.com) 获取经测试可正常使用的 uImage。
+> [点击此处](https://github.com/chenxin527/OWRT-BUILDS/releases?q=UIMAGE-ONLY-IPQ60XX&expanded=true) 获取经测试可正常使用的 uImage。
 
 ### 进 Web 刷机界面
 
@@ -103,10 +107,6 @@ U-Boot 截图示例（[点击此处](./screenshots.md) 查看所有网页截图�
 U-Boot 下不区分 LAN / WAN，任意网口均可进入 Web 刷机界面。
 
 按住 RESET / WPS 键后上电，等待 LED 闪烁 5 次后即可进入 U-Boot Web 刷机界面。
-
-> [!NOTE]
->
-> 360V6 靠近 USB 的第二个网口（紧挨着 WAN 的 LAN 口）无法进入 U-Boot Web 界面，请使用其他网口。
 
 ## 注意事项
 

@@ -270,7 +270,7 @@ show_help() {
     echo "选项:"
     echo "  help                    显示此帮助信息"
     echo "  setup_env               仅设置编译环境"
-	echo "  check_file_size <文件>  检查并调整文件大小至 640KB (655360 Bytes)"
+	echo "  check_file_size <文件>  检查并调整文件大小至 1536 KB (1572864 Bytes)"
     echo "  clean_cache             清理编译过程中产生的缓存"
     echo "  build_360v6             编译 Qihoo 360V6"
     echo "  build_all               编译所有支持的设备"
